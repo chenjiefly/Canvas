@@ -65,6 +65,14 @@ define('base/demo', [
                 y: 100,
                 isStroke: true  // 描边
             });
+
+            // 擦除矩形区域
+            Graph.clearRect(context, {
+                x: 400,
+                y: 400,
+                width: 20,
+                height: 20
+            })
         }
     };
 });

@@ -21,6 +21,17 @@ define('graph', [], function() {
                 context.fillRect(cfg.x, cfg.y, cfg.width, cfg.height);
             }
         },
+        /**
+         * [drawRect 擦除矩形函数]
+         * @param  {[Object]} context      [canvas绘图上下文]
+         * @param  {[Number]} cfg.x        [擦除矩形区域左上角原点横坐标]
+         * @param  {[Number]} cfg.x        [擦除矩形区域左上角原点纵坐标]
+         * @param  {[Number]} cfg.width    [擦除矩形区域宽度]
+         * @param  {[Number]} cfg.height   [擦除矩形区域高度]
+         */
+        clearRect: function (context, cfg) {
+            context.clearRect(cfg.x, cfg.y, cfg.width, cfg.height);
+        },
 
         /**
          * [drawLine 绘制直线函数]
