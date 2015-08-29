@@ -13,6 +13,9 @@ define('base/demo', [
     var context = canvas.get(0).getContext('2d');
 
     return {
+        /**
+         * [showDemo 展示demo]
+         */
         showDemo: function () {
             // 绘制矩形
             setLineWidth(context, 4);
@@ -78,6 +81,7 @@ define('base/demo', [
             // 重置canvas画布
             setTimeout(function() {
                 Util.resetCanvas(canvas);
+                Util.maximizeCanvas(canvas);  // 画布窗口最大化
 
                 // 画布重置后，所有设置的属性（如样式、宽度等）都会被完全清除
                 drawText(context, {

@@ -1,4 +1,9 @@
 /**
+ * 绘制文本模块
+ * 绘制实心或空心文本，可设置字体
+ */
+
+/**
  * [drawText 绘制文本]
  * @param  {[Object]} context [canvas绘图上下文]
  * @param  {[String]} cfg.text    [文本字符串]

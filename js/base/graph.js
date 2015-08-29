@@ -1,6 +1,9 @@
+/**
+ * 绘制基本图形模块
+ * 绘制矩形、直线、圆弧和圆
+ */
 define('graph', [], function() {
     return {
-        /******************** 绘制基本图形 ********************/
         /**
          * [drawRect 绘制矩形函数]
          * @param  {[Object]} context      [canvas绘图上下文]

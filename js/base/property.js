@@ -1,4 +1,8 @@
-/******************** 属性操作 ********************/
+/**
+ * 属性设置模块
+ * 设置颜色和线宽
+ */
+
 /**
  * [setColor 设置图形颜色]
  * @param {[Object]}  context   [canvas绘图上下文]
@@ -7,7 +11,7 @@
  * @param {[Number]}  blue      [RGB通道的蓝色通道]
  * @param {[Boolean]} isStroke  [是否空心图形]
  */
- function setColor(context, red, green, blue, isStroke) {
+function setColor(context, red, green, blue, isStroke) {
     var style = 'rgb(' + red + ',' + green + ',' + blue + ')';
 
     if (isStroke) {
