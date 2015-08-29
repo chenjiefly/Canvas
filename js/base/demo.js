@@ -17,6 +17,9 @@ define('base/demo', [
          * [showDemo 展示demo]
          */
         showDemo: function () {
+            // 浏览器窗口重绘时，重绘canvas
+            Util.resizeCanvas(canvas, context);
+
             // 绘制矩形
             setLineWidth(context, 4);
             setColor(context, 255, 0, 0, true);
