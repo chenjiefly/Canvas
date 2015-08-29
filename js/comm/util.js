@@ -26,22 +26,12 @@ define('util', [
             $canvas.attr('width', winSize.width)
                    .attr('height', winSize.height);
         },
-        resizeCanvas: function ($canvas, context) {
-            var that = this;
-
-            $win.resize(function() {
-                var date = new Date();
-
-                that.maximizeCanvas($canvas);
-
-                drawText(context, {
-                    text: '窗口大小变化，重绘Canvas成功！' + date.toLocaleString(), 
-                    font: 'ms-yh 58px serif',
-                    x: 150, 
-                    y: 100,
-                    isStroke: true  // 描边
-                });
-            });
+        /**
+         * [resizeCanvas 随着window窗口的重绘，canvas也重绘]
+         * @param  {Function} callback [重绘完成后需要执行的回调函数]
+         */
+        resizeCanvas: function (callback) {
+            $win.resize(callback);
         }
     };
 

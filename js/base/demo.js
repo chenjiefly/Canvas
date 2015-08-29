@@ -1,5 +1,5 @@
 /**
- * demo1展示了矩形、线条、圆弧、圆和文本的绘制及属性操作方法
+ * 本demo展示了矩形、线条、圆弧、圆和文本的绘制及属性操作方法
  */
 define('base/demo', [
     'jquery',
@@ -13,12 +13,19 @@ define('base/demo', [
     var context = canvas.get(0).getContext('2d');
 
     return {
+        init: function () {
+            // 浏览器窗口重绘时，重绘canvas
+            Util.resizeCanvas(this.showDemo);
+
+            // 展示demo
+            this.showDemo();
+        },
         /**
          * [showDemo 展示demo]
          */
         showDemo: function () {
-            // 浏览器窗口重绘时，重绘canvas
-            Util.resizeCanvas(canvas, context);
+            // 绘图前先重置Canvas
+            Util.resetCanvas(canvas);
 
             // 绘制矩形
             setLineWidth(context, 4);
@@ -66,7 +73,7 @@ define('base/demo', [
             setLineWidth(context, 2);
             setColor(context, 0, 255, 255, true);
             drawText(context, {
-                text: 'Hello, 陈杰！', 
+                text: 'Hello, 画布！', 
                 font: 'italic 58px serif',
                 x: 150, 
                 y: 100,

@@ -3,7 +3,10 @@ canvas {
     border: 1px solid #999;
     background: #E0E0E0;
 }
-
+.mod-canvas li h1 {
+    margin: 10px 0;
+    font-size: 25px;
+}
 #demo1 {
     width: 500px;  /* canvas有默认大小，当CSS的尺寸比例和canvas属性width和height的比例不一致时canvas比例会失调 */
     height: 500px;

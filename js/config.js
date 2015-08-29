@@ -1,11 +1,14 @@
 require.config({
     baseUrl: 'js/lib',  // 默认的baseUrl为包含RequireJS的那个HTML页面的所属目录。
     paths: {
-        // base
-        base    : '../base/demo',  // 推测：如果这里配置的路径找不到，将会找默认路径下该文件是否存在
+        // base: 基本功能
+        base     : '../base/demo',  // 推测：如果这里配置的路径找不到，将会找默认路径下该文件是否存在
         graph    : '../base/graph',
         property : '../base/property',
         text     : '../base/text',
+
+        // advanced: 高级功能
+        advanced : '../advanced/demo',
 
         // 通用
         util     : '../comm/util',
