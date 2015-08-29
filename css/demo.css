@@ -1,13 +1,7 @@
-html,
-body,
-ul {
-    margin: 0 0;
-    padding: 0 0;
-}
-
 canvas {
     margin-bottom: 20px;
     border: 1px solid #999;
+    background: #E0E0E0;
 }
 
 #demo1 {
