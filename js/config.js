@@ -7,6 +7,8 @@ require.config({
         property : '../base/property',
         text     : '../base/text',
 
+        // 通用
+        util     : '../comm/util',
         // 库文件
         require  : 'require',
         jquery   : 'jquery-1.10.2.min'

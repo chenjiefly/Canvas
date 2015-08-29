@@ -3,16 +3,17 @@
  */
 define('base/demo', [
     'jquery',
+    'util',
     'graph',
     'property',
     'text'
-    ], function($, Graph) {
+    ], function($, Util, Graph) {
+
+    var canvas = $('#base');
+    var context = canvas.get(0).getContext('2d');
 
     return {
         showDemo: function () {
-            var canvas = $('#base');
-            var context = canvas.get(0).getContext('2d');
-
             // 绘制矩形
             setLineWidth(context, 4);
             setColor(context, 255, 0, 0, true);
@@ -73,6 +74,20 @@ define('base/demo', [
                 width: 20,
                 height: 20
             })
+
+            // 重置canvas画布
+            setTimeout(function() {
+                Util.resetCanvas(canvas);
+
+                // 画布重置后，所有设置的属性（如样式、宽度等）都会被完全清除
+                drawText(context, {
+                    text: '画布重置成功', 
+                    font: 'ms-yh 58px serif',
+                    x: 150, 
+                    y: 100,
+                    isStroke: true  // 描边
+                });
+            }, 2000);
         }
     };
 });
