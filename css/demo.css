@@ -1,0 +1,9 @@
+canvas {
+    margin-bottom: 20px;
+    border: 1px solid #999;
+}
+
+#demo1 {
+    width: 500px;  /* canvas有默认大小，当CSS的尺寸比例和canvas属性width和height的比例不一致时canvas比例会失调 */
+    height: 500px;
+}
