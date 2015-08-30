@@ -4,10 +4,11 @@
 define('advanced/demo', [
     'jquery',
     'util',
+    'saveRecover',
     'graph',
     'property',
     'text'
-    ], function($, Util, Graph) {
+    ], function($, Util, Graph, SaveRecover) {
 
     var canvas = $('#advanced');
     var context = canvas.get(0).getContext('2d');

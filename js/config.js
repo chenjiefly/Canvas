@@ -3,12 +3,13 @@ require.config({
     paths: {
         // base: 基本功能
         base     : '../base/demo',  // 推测：如果这里配置的路径找不到，将会找默认路径下该文件是否存在
-        graph    : '../base/graph',
-        property : '../base/property',
-        text     : '../base/text',
+        graph    : '../base/graph',     // 绘制基本图形
+        property : '../base/property',  // 属性操作
+        text     : '../base/text',      // 绘制文本
 
         // advanced: 高级功能
         advanced : '../advanced/demo',
+        saveRecover : '../advanced/save-recover',  // 保存和恢复绘图状态
 
         // 通用
         util     : '../comm/util',
