@@ -4,11 +4,8 @@
 define('advanced/demo', [
     'jquery',
     'util',
-    'saveRecover',
-    'graph',
-    'property',
-    'text'
-    ], function($, Util, Graph, SaveRecover) {
+    'saveRecover'
+    ], function($, Util, SaveRecover) {
 
     var canvas = $('#advanced');
     var context = canvas.get(0).getContext('2d');
@@ -19,13 +16,13 @@ define('advanced/demo', [
             Util.resizeCanvas(this.showDemo);
 
             // 展示demo
-            this.showDemo();
+            this.showDemo(context);
         },
         /**
          * [showDemo 展示demo]
          */
         showDemo: function () {
-            
+            SaveRecover.showSingleSave(context);
         }
     };
 });

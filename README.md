@@ -26,4 +26,22 @@
     * 绘图状态的全部属性为：
         * 变换矩阵
         * 裁剪区域（clipping region）
-        * global-Alpha、globalComposite
+        * global-Alpha
+        * globalCompositeOperation
+        * strokeStyle
+        * fillStyle
+        * lineWidth
+        * lineCap
+        * lineJoin
+        * miterLimit
+        * shadowOffsetX
+        * shadowOffsetY
+        * shadowBlur
+        * shadoColor
+        * font
+        * textAlign
+        * textBaseline
+    * **画布上的当前路径和当前位图（正在显示的内容）并不属于状态**
+    * 绘图状态是以**绘图状态栈**的形式保存的
+    * context.save()：调用绘图上下文context的save方法可将状态入栈
+    * context.restore()：调用绘图上下文context的restore方法可将状态出栈

@@ -11,7 +11,7 @@
  * @param  {[Number]} cfg.y       [文本纵坐标]
  */
 function drawText(context, cfg) {
-    context.font = cfg.font;
+    context.font = cfg.font || 'ms-yh 58px serif';
 
     if (cfg.isStroke) {
         context.strokeText(cfg.text, cfg.x, cfg.y);
