@@ -22,3 +22,8 @@
 
 #### 6、advanced文件夹下为canvas的高级应用
 * save-recover：保存和恢复绘图状态
+    * 绘图状态指的是描述某一时刻2D渲染上下文外观的整套属性，从简单的颜色值到复杂的变换矩阵及其他特性
+    * 绘图状态的全部属性为：
+        * 变换矩阵
+        * 裁剪区域（clipping region）
+        * global-Alpha、globalComposite
