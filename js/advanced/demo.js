@@ -4,8 +4,8 @@
 define('advanced/demo', [
     'jquery',
     'util',
-    'saveRecover'
-    ], function($, Util, SaveRecover) {
+    'saveRestore'
+    ], function($, Util, SaveRestore) {
 
     var canvas = $('#advanced');
     var context = canvas.get(0).getContext('2d');
@@ -22,7 +22,7 @@ define('advanced/demo', [
          * [showDemo 展示demo]
          */
         showDemo: function () {
-            SaveRecover.showSingleSave(context);
+            SaveRestore.show(context);  // 演示保存和恢复绘图状态
         }
     };
 });

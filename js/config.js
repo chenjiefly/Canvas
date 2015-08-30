@@ -9,7 +9,7 @@ require.config({
 
         // advanced: 高级功能
         advanced : '../advanced/demo',
-        saveRecover : '../advanced/save-recover',  // 保存和恢复绘图状态
+        saveRestore : '../advanced/save-restore',  // 保存和恢复绘图状态
 
         // 通用
         util     : '../comm/util',
