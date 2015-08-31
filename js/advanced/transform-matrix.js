@@ -32,10 +32,11 @@ define('transformMatrix', [
      * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showMatrix(context) {
-        var xScale = Math.cos(0.7854);
-        var ySkew = -Math.sin(0.7854);
-        var xSkew = Math.sin(0.7854);
-        var yScale = Math.cos(0.7854);
+        var sita = Math.PI / 4;
+        var xScale = Math.cos(sita);
+        var ySkew = -Math.sin(sita);
+        var xSkew = Math.sin(sita);
+        var yScale = Math.cos(sita);
         var xTrans = -60;
         var yTrans = 120;
 
