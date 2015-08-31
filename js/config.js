@@ -10,7 +10,8 @@ require.config({
         // advanced: 高级功能
         advanced : '../advanced/demo',
         saveRestore : '../advanced/save-restore',  // 保存和恢复绘图状态
-        transform   : '../advanced/transform',  // 变形
+        transform   : '../advanced/transform',     // 变形
+        transformMatrix : '../advanced/transform-matrix',  //  变换矩阵
 
         // 通用
         util     : '../comm/util',
