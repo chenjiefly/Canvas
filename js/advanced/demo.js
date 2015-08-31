@@ -4,25 +4,39 @@
 define('advanced/demo', [
     'jquery',
     'util',
-    'saveRestore'
-    ], function($, Util, SaveRestore) {
-
-    var canvas = $('#advanced');
-    var context = canvas.get(0).getContext('2d');
-
+    'saveRestore',
+    'transform'
+    ], function($, Util, SaveRestore, Transform) {
     return {
         init: function () {
             // 浏览器窗口重绘时，重绘canvas
-            Util.resizeCanvas(this.showDemo);
+            // Util.resizeCanvas(this.showDemo);
 
             // 展示demo
-            this.showDemo(context);
+            this.showDemo();
         },
         /**
          * [showDemo 展示demo]
          */
         showDemo: function () {
-            SaveRestore.show(context);  // 演示保存和恢复绘图状态
+           _demo1();
+           _demo2();
         }
     };
+
+    // 示例一、保存和恢复绘图状态
+    function _demo1() {
+        var canvas = $('#advanced1');
+        var context = canvas.get(0).getContext('2d');
+
+        SaveRestore.show(context);  // 演示保存和恢复绘图状态
+    }
+
+    // 示例二、变形
+    function _demo2() {
+        var canvas = $('#advanced2');
+        var context = canvas.get(0).getContext('2d');
+
+        Transform.show(context);  // 演示绘图变形
+    }
 });
