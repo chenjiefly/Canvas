@@ -5,8 +5,9 @@ define('advanced/demo', [
     'jquery',
     'util',
     'saveRestore',
-    'transform'
-    ], function($, Util, SaveRestore, Transform) {
+    'transform',
+    'transformMatrix'
+    ], function($, Util, SaveRestore, Transform, TransformMatrix) {
     return {
         init: function () {
             // 浏览器窗口重绘时，重绘canvas
@@ -32,11 +33,12 @@ define('advanced/demo', [
         SaveRestore.show(context);  // 演示保存和恢复绘图状态
     }
 
-    // 示例二、变形
+    // 示例二、变形和变换矩阵
     function _demo2() {
         var canvas = $('#advanced2');
         var context = canvas.get(0).getContext('2d');
 
         Transform.show(context);  // 演示绘图变形
+        TransformMatrix.show(context);  // 演示变换矩阵
     }
 });
