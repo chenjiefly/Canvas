@@ -6,8 +6,9 @@ define('advanced/demo', [
     'util',
     'saveRestore',
     'transform',
-    'transformMatrix'
-    ], function($, Util, SaveRestore, Transform, TransformMatrix) {
+    'transformMatrix',
+    'combine'
+    ], function($, Util, SaveRestore, Transform, TransformMatrix, Combine) {
     return {
         init: function () {
             // 浏览器窗口重绘时，重绘canvas
@@ -22,6 +23,7 @@ define('advanced/demo', [
         showDemo: function () {
            _demo1();
            _demo2();
+           _demo3();
         }
     };
 
@@ -40,5 +42,13 @@ define('advanced/demo', [
 
         Transform.show(context);  // 演示绘图变形
         TransformMatrix.show(context);  // 演示变换矩阵
+    }
+
+    // 示例三、合并
+    function _demo3() {
+        var canvas = $('#advanced3');
+        var context = canvas.get(0).getContext('2d');
+
+        Combine.show(context);  // 演示合并
     }
 });
