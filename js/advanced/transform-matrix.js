@@ -58,7 +58,7 @@ define('transformMatrix', [
             y: 100
         });
 
-        // 平移原点坐标
+        // 变换矩阵
         context.transform(xScale, ySkew, xSkew, yScale, xTrans, yTrans);
 
         // 第2次绘制矩形
