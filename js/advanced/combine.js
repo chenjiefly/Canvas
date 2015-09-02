@@ -84,7 +84,7 @@ define('combine', [
      */
     function _showSourceOver(context) {
         // 平移原点坐标
-        context.translate(100, -60);
+        context.translate(100, -70);
 
         drawText(context, {
             text: '2.1、sourse-over', 
@@ -111,5 +111,9 @@ define('combine', [
             x: 80, 
             y: 100
         });
+    }
+
+    function drawColorText(context, text) {
+        
     }
 });
