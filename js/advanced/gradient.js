@@ -28,8 +28,8 @@ define('gradient', [
 
             context.translate(10, 60);
 
-            _showLinearGradient();  // 1、展示渐变效果1
-            // _showRadialGradient();  // 2、展示渐变效果2
+            _showLinearGradient();  // 1、展示线性渐变效果
+            _showRadialGradient();  // 2、展示放射渐变效果
         }
     };
 
@@ -65,34 +65,53 @@ define('gradient', [
      * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showRadialGradient() {
+        var gradient;
+
+        context.save();
 
         // 平移原点坐标
-        context.translate(80, -100);
+        context.translate(200, -40);
 
         drawText(context, {
-            text: '2、放射渐变效果', 
+            text: '2、径向渐变效果', 
             x: 60, 
             y: 20
         });
 
         // 平移原点坐标
         context.translate(60, 40);
+        
+        gradient = context.createRadialGradient(20, 20, 40, 80, 80, 10);
+        gradient.addColorStop(0, 'rgb(255, 0, 0)');
+        gradient.addColorStop(0.8, 'rgb(0, 255, 0)');
+        gradient.addColorStop(1, 'rgb(0, 0, 255)');
 
-        // 第1次绘制矩形
-        setBlue(context);
+        context.fillStyle = gradient;
 
-        drawRectText(context, '原始矩形');  // 绘制一个矩形和一条注释
+        context.fillRect(0, 0, 200, 100);
+
+
+        context.restore();
 
         // 平移原点坐标
-        context.translate(0, 60);
+        context.translate(-60, 120);
 
-        // 第2次绘制矩形
+        drawText(context, {
+            text: '3、放射渐变效果', 
+            x: 60, 
+            y: 20
+        });
+
+        // 平移原点坐标
+        context.translate(60, 40);
         
-        context.shadowBlur = 5;
-        context.shadowColor = 'rgb(0, 200, 0)';
-        context.shadowOffsetX = 5;
-        context.shadowOffsetY = 5;
-        
-        drawRectText(context, '带渐变矩形');  // 绘制一个矩形和一条注释
+        gradient = context.createRadialGradient(150, 100, 200, 150, 100, 10);
+        gradient.addColorStop(0, 'rgb(255, 0, 0)');
+        gradient.addColorStop(0.5, 'rgb(0, 255, 0)');
+        gradient.addColorStop(1, 'rgb(0, 0, 255)');
+
+        context.fillStyle = gradient;
+
+        context.fillRect(0, 0, 300, 200);
     }
 });

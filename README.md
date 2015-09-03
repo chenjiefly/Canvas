@@ -98,4 +98,6 @@
     * 线性渐变
         * 创建方法：createLinearGradient(startX, startY, endX, endY)，参数为渐变线起止点坐标
         * 设置起止渐变颜色方法：addColorStop(offset, color)，offset为渐变状态（0~1），color为'rgb(r,g,b)'
-    * 放射渐变创建方法：createRadialGradient
+    * 放射渐变
+        * 创建方法：createRadialGradient(x0, y0, r0, x1, y1, r1)
+        * **必须要理解径向渐变的原理**
