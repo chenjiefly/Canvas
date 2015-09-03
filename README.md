@@ -92,3 +92,8 @@
         * shadowOffsetX：水平方向模糊偏移量
         * shadowOffsetY：垂直方向模糊偏移量
         * shadowColor：模糊颜色，使用'rgb(r, g, b)'来设置
+    * 渐变
+        * fillStyle和strokeStyle都接受以CanvasGradient对象表示的渐变颜色值
+        * 画布支持两种类型渐变：线性渐变和放射渐变，两种创建方法都返回一个CanvasGradient对象
+        * 线性渐变创建方法：createLinearGradient
+        * 放射渐变创建方法：createRadialGradient
