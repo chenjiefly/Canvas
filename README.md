@@ -68,32 +68,34 @@
         * 该矩阵默认值是3阶单位矩阵
         * context.transform(a, b, c, d, e, f)
         * **使用变换矩阵进行旋转是倾斜和缩放的组合效果**，参看例子，只需要一个角度值就可以旋转
-    * 合成
-        * **修改全局合成属性会影响到修改之后所绘制的全部内容**
-        * 全局阿尔法值globalAlpha，取值范围0.0（全透明）到1.0（不透明），默认1.0
-        * 局部Alpha值会参照globalAlpha值（充当基数），具体表现为两者相乘后的透明度
-        
-        * 源：待绘制的图形
-        * 目标：已经绘制到画布上的图形
+* 合成
+    * **修改全局合成属性会影响到修改之后所绘制的全部内容**
+    * 全局阿尔法值globalAlpha，取值范围0.0（全透明）到1.0（不透明），默认1.0
+    * 局部Alpha值会参照globalAlpha值（充当基数），具体表现为两者相乘后的透明度
+    
+    * 源：待绘制的图形
+    * 目标：已经绘制到画布上的图形
 
-        * source-over：默认值，源绘制在目标之上
-        * destination-over：目标绘制在源之上
-        * source-atop：源绘制在目标之上，未重合区域的源透明
-        * destination-atop：目标绘制在源之上，未重合区域的目标透明
-        * source-in：只绘制重合区域的源
-        * destination-in：只绘制重合区域的目标
-        * source-out：只绘制不重合区域的源
-        * destination-out：只绘制不重合区域的目标
-        * lighter：与顺序无关，重叠部分颜色相加，最大值为255（白色）
-        * copy：与顺序无关，只绘制源，并覆盖目标
-        * xor：与顺序无关，绘制不重叠的源和目标，重叠部分透明
-    * 阴影
-        * shadowBlur：模糊效果的边界宽度像素值
-        * shadowOffsetX：水平方向模糊偏移量
-        * shadowOffsetY：垂直方向模糊偏移量
-        * shadowColor：模糊颜色，使用'rgb(r, g, b)'来设置
-    * 渐变
-        * fillStyle和strokeStyle都接受以CanvasGradient对象表示的渐变颜色值
-        * 画布支持两种类型渐变：线性渐变和放射渐变，两种创建方法都返回一个CanvasGradient对象
-        * 线性渐变创建方法：createLinearGradient
-        * 放射渐变创建方法：createRadialGradient
+    * source-over：默认值，源绘制在目标之上
+    * destination-over：目标绘制在源之上
+    * source-atop：源绘制在目标之上，未重合区域的源透明
+    * destination-atop：目标绘制在源之上，未重合区域的目标透明
+    * source-in：只绘制重合区域的源
+    * destination-in：只绘制重合区域的目标
+    * source-out：只绘制不重合区域的源
+    * destination-out：只绘制不重合区域的目标
+    * lighter：与顺序无关，重叠部分颜色相加，最大值为255（白色）
+    * copy：与顺序无关，只绘制源，并覆盖目标
+    * xor：与顺序无关，绘制不重叠的源和目标，重叠部分透明
+* 阴影
+    * shadowBlur：模糊效果的边界宽度像素值
+    * shadowOffsetX：水平方向模糊偏移量
+    * shadowOffsetY：垂直方向模糊偏移量
+    * shadowColor：模糊颜色，使用'rgb(r, g, b)'来设置
+* 渐变
+    * fillStyle和strokeStyle都接受以CanvasGradient对象表示的渐变颜色值
+    * 画布支持两种类型渐变：线性渐变和放射渐变，两种创建方法都返回一个CanvasGradient对象
+    * 线性渐变
+        * 创建方法：createLinearGradient(startX, startY, endX, endY)，参数为渐变线起止点坐标
+        * 设置起止渐变颜色方法：addColorStop(offset, color)，offset为渐变状态（0~1），color为'rgb(r,g,b)'
+    * 放射渐变创建方法：createRadialGradient

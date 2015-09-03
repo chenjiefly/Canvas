@@ -8,12 +8,18 @@ define('gradient', [
     'text'
     ], function(Util, Graph) {
 
+    var canvas, context;
+
     return {
         /**
          * [show 展示渐变函数]
-         * @param {[Object]} [context] [canvas绘图上下文]
+         * @param {[Object]} [can] [canvas对象]
+         * @param {[Object]} [con] [canvas绘图上下文]
          */
-        show: function (context) {
+        show: function (can, con) {
+            canvas = can;
+            context = con;
+
             drawText(context, {
                 text: '六、渐变', 
                 x: 180, 
@@ -22,57 +28,49 @@ define('gradient', [
 
             context.translate(10, 60);
 
-            _showShadow1(context);  // 1、展示阴影效果1
-            _showShadow2(context);  // 2、展示阴影效果2
+            _showLinearGradient();  // 1、展示渐变效果1
+            // _showRadialGradient();  // 2、展示渐变效果2
         }
     };
 
     /**
-     * [_showShadow1 展示展示阴影效果1]
+     * [_showLinearGradient 展示展示渐变效果1]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
-    function _showShadow1(context) {
+    function _showLinearGradient() {
+        var gradient;
 
         // 平移原点坐标
         context.translate(-60, -20);
 
         drawText(context, {
-            text: '1、阴影效果1', 
+            text: '1、线性渐变效果', 
             x: 60, 
             y: 20
         });
 
-        // 平移原点坐标
+        gradient = context.createLinearGradient(0, 0, 200, 100);
+        gradient.addColorStop(0, 'rgb(255, 0, 0)');
+        gradient.addColorStop(0.5, 'rgb(0, 255, 0)');
+        gradient.addColorStop(1, 'rgb(0, 0, 255)');
+
+        context.fillStyle = gradient;
+
         context.translate(60, 40);
-
-        // 第1次绘制矩形
-        setBlue(context);
-
-        drawRectText(context, '原始矩形');  // 绘制一个矩形和一条注释
-
-        // 平移原点坐标
-        context.translate(0, 60);
-
-        // 第2次绘制矩形
-        context.save();
-        context.shadowBlur = 10;
-        context.shadowColor = 'rgb(0, 255, 0)';
-        
-        drawRectText(context, '带阴影矩形');  // 绘制一个矩形和一条注释
-        context.restore();
+        context.fillRect(0, 0, 200, 100);
     }
 
     /**
-     * [_showShadow2 展示展示阴影效果2]
+     * [_showRadialGradient 展示展示放射渐变效果]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
-    function _showShadow2(context) {
+    function _showRadialGradient() {
 
         // 平移原点坐标
         context.translate(80, -100);
 
         drawText(context, {
-            text: '2、阴影效果2', 
+            text: '2、放射渐变效果', 
             x: 60, 
             y: 20
         });
@@ -95,55 +93,6 @@ define('gradient', [
         context.shadowOffsetX = 5;
         context.shadowOffsetY = 5;
         
-        drawRectText(context, '带阴影矩形');  // 绘制一个矩形和一条注释
-    }
-
-    /**
-     * [drawRectText 绘制一个矩形和一条注释文本]
-     * @param  {[Object]} context [画图绘制上下文]
-     * @param  {[String]} text    [注释内容]
-     */
-    function drawRectText(context, text) {
-        Graph.drawRect(context, {
-            x: 0,
-            y: 0,
-            width: 40,
-            height: 40
-        });
-
-        context.globalCompositeOperation = 'source-over';
-        drawText(context, {
-            text: text, 
-            x: 60, 
-            y: 20
-        });
-    }
-
-    /**
-     * [drawColorText 绘制彩色文本]
-     * @param  {[Object]} context [2d渲染上下文]
-     * @param  {[String]} text    [文本字符串]
-     * @param  {[Number]} red     [红色通道值]
-     * @param  {[Number]} green   [绿色通道值]
-     * @param  {[Number]} blue    [蓝色通道值]
-     */
-    function drawColorText(context, text, red, green, blue) {
-        setColor(context, red, green, blue);
-
-        drawText(context, {
-            text: text, 
-            x: 60, 
-            y: 20
-        });
-    }
-
-    function setBlue(context) {
-        setColor(context, 63, 169, 245);
-    }
-    function setPink(context) {
-        setColor(context, 255, 123, 172);
-    }
-    function setBlack(context) {
-        setColor(context, 0, 0, 0);
+        drawRectText(context, '带渐变矩形');  // 绘制一个矩形和一条注释
     }
 });

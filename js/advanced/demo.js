@@ -69,6 +69,6 @@ define('advanced/demo', [
         var canvas = $('#advanced5');
         var context = canvas.get(0).getContext('2d');
 
-        Gradient.show(context);  // 演示阴影
+        Gradient.show(canvas, context);  // 演示阴影
     }
 });
