@@ -87,3 +87,8 @@
         * lighter：与顺序无关，重叠部分颜色相加，最大值为255（白色）
         * copy：与顺序无关，只绘制源，并覆盖目标
         * xor：与顺序无关，绘制不重叠的源和目标，重叠部分透明
+    * 阴影
+        * shadowBlur：模糊效果的边界宽度像素值
+        * shadowOffsetX：水平方向模糊偏移量
+        * shadowOffsetY：垂直方向模糊偏移量
+        * shadowColor：模糊颜色，使用'rgb(r, g, b)'来设置

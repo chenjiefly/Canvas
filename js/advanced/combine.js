@@ -10,7 +10,7 @@ define('combine', [
 
     return {
         /**
-         * [show 展示保存和恢复绘图状态函数]
+         * [show 展示保存和恢复绘图状态，以及合并的函数]
          * @param {[Object]} [context] [canvas绘图上下文]
          */
         show: function (context) {
