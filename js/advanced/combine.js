@@ -20,14 +20,16 @@ define('combine', [
                 y: 20
             });
 
+            context.translate(10, 60);
+
             _showGlobalAlpha(context);  // 1、展示平移变形
 
             // 展示globalCompositeOperation
             _showSourceOver(context);        // 2.1、源覆盖于目标之上（默认）
-            // _showDestinationOver(context);   // 2.2、目标覆盖于源之上
-            // _showSourceAtop(context);        // 2.3、源覆盖于目标之上，重叠区域不透明，其他位置的目标不透明，源透明
-            // _showDestinationAtop(context);   // 2.4、目标覆盖于源之上，重叠区域不透明，其他位置的源不透明，目标透明
-            // _showSourceIn(context);          // 2.5、重叠区域只绘制源，不重叠部分都透明
+            _showDestinationOver(context);   // 2.2、目标覆盖于源之上
+            _showSourceAtop(context);        // 2.3、源覆盖于目标之上，重叠区域不透明，其他位置的目标不透明，源透明
+            _showDestinationAtop(context);   // 2.4、目标覆盖于源之上，重叠区域不透明，其他位置的源不透明，目标透明
+            _showSourceIn(context);          // 2.5、重叠区域只绘制源，不重叠部分都透明
             // _showDestinationIn(context);     // 2.6、重叠区域保留目标，不重叠部分都透明
             // _showSourceOut(context);         // 2.7、不重叠部分绘制源，重复部分变成透明
             // _showDestinationOut(context);    // 2.8、不重叠部分保留目标，重复部分变成透明
@@ -48,15 +50,15 @@ define('combine', [
 
         drawText(context, {
             text: '1、globalAlpha', 
-            x: 80, 
-            y: 100
+            x: 60, 
+            y: 20
         });
 
         // 平移原点坐标
         context.translate(60, 40);
 
         // 第1次绘制矩形
-        setColor(context, 63, 169, 245);
+        setBlue(context);
 
         drawRectText(context, '原始矩形');  // 绘制一个矩形和一条注释
 
@@ -67,32 +69,82 @@ define('combine', [
         context.globalAlpha = 0.5;
 
         // 第2次绘制矩形
-        setColor(context, 255, 123, 172);
+        setPink(context);
 
         drawRectText(context, '透明度0.5，且');  // 绘制一个矩形和一条注释
 
         drawText(context, {
             text: '影响文字透明度', 
-            x: 80, 
-            y: 120
+            x: 60, 
+            y: 40
         });
+
+        context.globalAlpha = 1;
     }
 
     /**
-     * [_showSourceOver 展示sourse-over]
+     * [_showSourceOver 展示source-over]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showSourceOver(context) {
         // 平移原点坐标
         context.translate(100, -70);
 
-        drawText(context, {
-            text: '2.1、sourse-over', 
-            x: 80, 
-            y: 100
-        });
+        drawPairRect(context, '2.1、source-over', 'source-over');
     }
 
+    /**
+     * [_showSourceOver 展示destination-over]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showDestinationOver(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.2、destination-over', 'destination-over');
+    }
+
+    /**
+     * [_showSourceAtop 展示source-atop]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showSourceAtop(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.3、source-atop', 'source-atop');
+    }
+
+    /**
+     * [_showDestinationAtop 展示destination-atop]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showDestinationAtop(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.4、destination-atop', 'destination-atop');
+    }
+
+    /**
+     * [drawPairRect 绘制一对重叠的示例矩形]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     * @param {[String]} [title]   [标题字符串]
+     * @param {[String]} [type]    [合成类型的字符串]
+     */
+    function drawPairRect(context, title, type) {
+        drawColorText(context, title, 0, 0, 0);
+
+        context.translate(60, 40);
+        setBlue(context);
+        drawRectText(context, 'destination');
+
+        context.globalCompositeOperation = type;
+
+        context.translate(30, 30);
+        setPink(context);
+        drawRectText(context, 'source');
+    }
 
     /**
      * [drawRectText 绘制一个矩形和一条注释文本]
@@ -101,19 +153,45 @@ define('combine', [
      */
     function drawRectText(context, text) {
         Graph.drawRect(context, {
-            x: 20,
-            y: 80,
+            x: 0,
+            y: 0,
             width: 40,
             height: 40
         });
+
+        context.globalCompositeOperation = 'source-over';
         drawText(context, {
             text: text, 
-            x: 80, 
-            y: 100
+            x: 60, 
+            y: 20
         });
     }
 
-    function drawColorText(context, text) {
-        
+    /**
+     * [drawColorText 绘制彩色文本]
+     * @param  {[Object]} context [2d渲染上下文]
+     * @param  {[String]} text    [文本字符串]
+     * @param  {[Number]} red     [红色通道值]
+     * @param  {[Number]} green   [绿色通道值]
+     * @param  {[Number]} blue    [蓝色通道值]
+     */
+    function drawColorText(context, text, red, green, blue) {
+        setColor(context, red, green, blue);
+
+        drawText(context, {
+            text: text, 
+            x: 60, 
+            y: 20
+        });
+    }
+
+    function setBlue(context) {
+        setColor(context, 63, 169, 245);
+    }
+    function setPink(context) {
+        setColor(context, 255, 123, 172);
+    }
+    function setBlack(context) {
+        setColor(context, 0, 0, 0);
     }
 });
