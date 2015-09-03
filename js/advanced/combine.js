@@ -15,7 +15,7 @@ define('combine', [
          */
         show: function (context) {
             drawText(context, {
-                text: '四、合并', 
+                text: '四、合并(有些模式只能单独观看，请取消注释后观看)', 
                 x: 180, 
                 y: 20
             });
@@ -28,8 +28,8 @@ define('combine', [
             _showSourceOver(context);        // 2.1、源覆盖于目标之上（默认）
             _showDestinationOver(context);   // 2.2、目标覆盖于源之上
             _showSourceAtop(context);        // 2.3、源覆盖于目标之上，重叠区域不透明，其他位置的目标不透明，源透明
-            _showDestinationAtop(context);   // 2.4、目标覆盖于源之上，重叠区域不透明，其他位置的源不透明，目标透明
-            _showSourceIn(context);          // 2.5、重叠区域只绘制源，不重叠部分都透明
+            // _showDestinationAtop(context);   // 2.4、目标覆盖于源之上，重叠区域不透明，其他位置的源不透明，目标透明
+            // _showSourceIn(context);          // 2.5、重叠区域只绘制源，不重叠部分都透明
             // _showDestinationIn(context);     // 2.6、重叠区域保留目标，不重叠部分都透明
             // _showSourceOut(context);         // 2.7、不重叠部分绘制源，重复部分变成透明
             // _showDestinationOut(context);    // 2.8、不重叠部分保留目标，重复部分变成透明
@@ -124,6 +124,50 @@ define('combine', [
         context.translate(80, -70);
 
         drawPairRect(context, '2.4、destination-atop', 'destination-atop');
+    }
+
+    /**
+     * [_showSourceIn 展示source-in]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showSourceIn(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.5、source-in', 'source-in');
+    }
+
+    /**
+     * [_showDestinationIn 展示destination-in]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showDestinationIn(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.6、destination-in', 'destination-in');
+    }
+
+    /**
+     * [_showSourceOut 展示source-out]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showSourceOut(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.7、source-out', 'source-out');
+    }
+
+    /**
+     * [_showDestinationOut 展示destination-out]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showDestinationOut(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.8、destination-out', 'destination-out');
     }
 
     /**
