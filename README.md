@@ -108,3 +108,7 @@
     * 贝塞尔曲线
         * quadraticCurveTo(cpx, cpy, x, y)：二次贝塞尔曲线，参数分别为控制点和目标点坐标
         * bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)：三次贝塞尔曲线，参数分别为两个控制点和目标点坐标
+* 导出画布为图像
+    * toDataURL方法用于画布导出为图像，返回的数据中前四个单词为"data:image/png;base64"，表示该数据是base64编码的PNG图片数据
+    * 在base64后的所有字符和符号都是以文本表示的画布图像
+    * 将该数据直接赋给<img>标签的src特性可以直接显示图片

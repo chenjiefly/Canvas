@@ -16,6 +16,7 @@ require.config({
         shadow   : '../advanced/shadow',      // 阴影
         gradient   : '../advanced/gradient',  // 渐变
         complexPath: '../advanced/complex-path', // 复杂路径
+        exportCanvas:'../advanced/export-canvas',// 导出画布为图像
 
         // 通用
         util     : '../comm/util',

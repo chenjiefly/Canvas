@@ -28,7 +28,7 @@ define('complexPath', [
 
             context.translate(10, 60);
 
-            _showPolygon();  // 1、展示线性渐变效果
+            _showPolygon();      // 1、展示多边形曲线绘制
             _showBezierCurve();  // 2、展示贝塞尔曲线
         }
     };

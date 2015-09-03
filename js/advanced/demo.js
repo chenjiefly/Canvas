@@ -10,7 +10,8 @@ define('advanced/demo', [
     'combine',
     'shadow',
     'gradient',
-    'complexPath'
+    'complexPath',
+    'exportCanvas'
     ], function(
         $, 
         Util, 
@@ -20,7 +21,8 @@ define('advanced/demo', [
         Combine, 
         Shadow, 
         Gradient,
-        ComplexPath
+        ComplexPath,
+        ExportCanvas
     ) {
     return {
         init: function () {
@@ -40,6 +42,7 @@ define('advanced/demo', [
            _demo4();
            _demo5();
            _demo6();
+           _demo7();
         }
     };
 
@@ -90,5 +93,13 @@ define('advanced/demo', [
         var context = canvas.get(0).getContext('2d');
 
         ComplexPath.show(canvas, context);  // 演示复杂路径
+    }
+
+    // 示例七、导出画布为图像
+    function _demo7() {
+        var canvas = $('#advanced7');
+        var context = canvas.get(0).getContext('2d');
+
+        ExportCanvas.show(canvas, context);  // 演示复杂路径
     }
 });
