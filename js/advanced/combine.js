@@ -15,7 +15,7 @@ define('combine', [
          */
         show: function (context) {
             drawText(context, {
-                text: '四、合并(有些模式只能单独观看，请取消注释后观看)', 
+                text: '四、合并(当前未显示模式需要单独取消代码注释查看)', 
                 x: 180, 
                 y: 20
             });
@@ -33,9 +33,9 @@ define('combine', [
             // _showDestinationIn(context);     // 2.6、重叠区域保留目标，不重叠部分都透明
             // _showSourceOut(context);         // 2.7、不重叠部分绘制源，重复部分变成透明
             // _showDestinationOut(context);    // 2.8、不重叠部分保留目标，重复部分变成透明
-            // _showLighter(context);           // 2.9、与顺序无关，重叠部分颜色值相加，最大255
+            _showLighter(context);           // 2.9、与顺序无关，重叠部分颜色值相加，最大255
             // _showCopy(context);              // 2.10、与顺序无关，只绘制源，覆盖目标
-            // _showXor(context);               // 2.11、与顺序无关，只绘制不重叠区域，重叠部分编程透明
+            _showXor(context);               // 2.11、与顺序无关，只绘制不重叠区域，重叠部分变成透明
         }
     };
 
@@ -169,6 +169,43 @@ define('combine', [
 
         drawPairRect(context, '2.8、destination-out', 'destination-out');
     }
+
+    /**
+     * [_showLighter 展示lighter]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showLighter(context) {
+        // 平移原点坐标
+        context.translate(-580, 70);
+
+        drawPairRect(context, '2.9、lighter', 'lighter');
+    }
+
+    /**
+     * [_showCopy 展示copy]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showCopy(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.10、copy', 'copy');
+    }
+
+    /**
+     * [_showXor 展示xor]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showXor(context) {
+        // 平移原点坐标
+        context.translate(80, -70);
+
+        drawPairRect(context, '2.11、xor', 'xor');
+    }
+
+
+
+
 
     /**
      * [drawPairRect 绘制一对重叠的示例矩形]
