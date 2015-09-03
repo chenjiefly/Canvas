@@ -15,6 +15,7 @@ require.config({
         combine  : '../advanced/combine',     // 合并
         shadow   : '../advanced/shadow',      // 阴影
         gradient   : '../advanced/gradient',  // 渐变
+        complexPath: '../advanced/complex-path', // 复杂路径
 
         // 通用
         util     : '../comm/util',

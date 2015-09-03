@@ -9,8 +9,19 @@ define('advanced/demo', [
     'transformMatrix',
     'combine',
     'shadow',
-    'gradient'
-    ], function($, Util, SaveRestore, Transform, TransformMatrix, Combine, Shadow, Gradient) {
+    'gradient',
+    'complexPath'
+    ], function(
+        $, 
+        Util, 
+        SaveRestore, 
+        Transform, 
+        TransformMatrix, 
+        Combine, 
+        Shadow, 
+        Gradient,
+        ComplexPath
+    ) {
     return {
         init: function () {
             // 浏览器窗口重绘时，重绘canvas
@@ -28,6 +39,7 @@ define('advanced/demo', [
            _demo3();
            _demo4();
            _demo5();
+           _demo6();
         }
     };
 
@@ -69,6 +81,14 @@ define('advanced/demo', [
         var canvas = $('#advanced5');
         var context = canvas.get(0).getContext('2d');
 
-        Gradient.show(canvas, context);  // 演示阴影
+        Gradient.show(canvas, context);  // 演示渐变
+    }
+
+    // 示例六、复杂路径
+    function _demo6() {
+        var canvas = $('#advanced6');
+        var context = canvas.get(0).getContext('2d');
+
+        ComplexPath.show(canvas, context);  // 演示复杂路径
     }
 });
