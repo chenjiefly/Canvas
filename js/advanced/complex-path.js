@@ -28,36 +28,82 @@ define('complexPath', [
 
             context.translate(10, 60);
 
-            _showLinearGradient();  // 1、展示线性渐变效果
+            _showPolygon();  // 1、展示线性渐变效果
+            _showBezierCurve();  // 2、展示贝塞尔曲线
         }
     };
 
     /**
-     * [_showLinearGradient 展示展示渐变效果1]
+     * [_showPolygon 展示多边形]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
-    function _showLinearGradient() {
-        var gradient;
-
-        // 平移原点坐标
-        context.translate(-60, -20);
-
+    function _showPolygon() {
         drawText(context, {
-            text: '1、线性渐变效果', 
-            x: 60, 
-            y: 20
+            text: '1、多边形', 
+            x: 0, 
+            y: 0
         });
 
-        gradient = context.createLinearGradient(0, 0, 200, 100);
-        gradient.addColorStop(0, 'rgb(255, 0, 0)');
-        gradient.addColorStop(0.5, 'rgb(0, 255, 0)');
-        gradient.addColorStop(1, 'rgb(0, 0, 255)');
+        // 平移原点坐标
+        context.translate(10, 20);
 
-        context.fillStyle = gradient;
-
-        context.translate(60, 40);
-        context.fillRect(0, 0, 200, 100);
+        // 画一个三角形
+        with(context) {
+            beginPath();
+            moveTo(50, 0);
+            lineTo(100, 100);
+            lineTo(0, 100);
+            closePath();
+            stroke();
+            fill();
+        }
     }
 
-    
+    /**
+     * [_showBezierCurve 展示贝塞尔曲线]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showBezierCurve() {
+
+        // 平移原点坐标
+        context.translate(140, -20);
+
+        drawText(context, {
+            text: '2、二次贝塞尔曲线', 
+            x: 0, 
+            y: 0
+        });
+
+        // 画一个三角形
+        with(context) {
+            translate(0, 20);  // 平移原点坐标
+
+            lineWidth = 2;
+
+            beginPath();
+            moveTo( 0, 50);
+            quadraticCurveTo(100, -50, 100, 50);
+            stroke();
+        }
+
+
+        // 平移原点坐标
+        context.translate(160, -20);
+
+        drawText(context, {
+            text: '3、三次贝塞尔曲线', 
+            x: 0, 
+            y: 0
+        });
+
+        // 画一个三角形
+        with(context) {
+            translate(0, 20);  // 平移原点坐标
+
+            beginPath();
+            moveTo( 0, 50);
+            bezierCurveTo(25, -25, 75, 125, 100, 50);
+            stroke();
+        }
+    }
 });

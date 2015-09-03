@@ -34,7 +34,7 @@ define('gradient', [
     };
 
     /**
-     * [_showLinearGradient 展示展示渐变效果1]
+     * [_showLinearGradient 展示渐变效果1]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showLinearGradient() {
@@ -61,7 +61,7 @@ define('gradient', [
     }
 
     /**
-     * [_showRadialGradient 展示展示放射渐变效果]
+     * [_showRadialGradient 展示放射渐变效果]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showRadialGradient() {

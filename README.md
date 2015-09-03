@@ -101,3 +101,10 @@
     * 放射渐变
         * 创建方法：createRadialGradient(x0, y0, r0, x1, y1, r1)
         * **必须要理解径向渐变的原理**
+* 复杂路径
+    * 每次调用moveTo或lineTo都会给子路径增加一个相应的(x, y)坐标值，首尾相连的线段可组成图案
+    * closePath会封闭路径，即连接起点和终点之间的路径
+
+    * 贝塞尔曲线
+        * quadraticCurveTo(cpx, cpy, x, y)：二次贝塞尔曲线，参数分别为控制点和目标点坐标
+        * bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)：三次贝塞尔曲线，参数分别为两个控制点和目标点坐标
