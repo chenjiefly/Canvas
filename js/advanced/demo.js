@@ -8,8 +8,9 @@ define('advanced/demo', [
     'transform',
     'transformMatrix',
     'combine',
-    'shadow'
-    ], function($, Util, SaveRestore, Transform, TransformMatrix, Combine, Shadow) {
+    'shadow',
+    'gradient'
+    ], function($, Util, SaveRestore, Transform, TransformMatrix, Combine, Shadow, Gradient) {
     return {
         init: function () {
             // 浏览器窗口重绘时，重绘canvas
@@ -26,6 +27,7 @@ define('advanced/demo', [
            _demo2();
            _demo3();
            _demo4();
+           _demo5();
         }
     };
 
@@ -60,5 +62,13 @@ define('advanced/demo', [
         var context = canvas.get(0).getContext('2d');
 
         Shadow.show(context);  // 演示阴影
+    }
+
+    // 示例五、渐变
+    function _demo5() {
+        var canvas = $('#advanced5');
+        var context = canvas.get(0).getContext('2d');
+
+        Gradient.show(context);  // 演示阴影
     }
 });

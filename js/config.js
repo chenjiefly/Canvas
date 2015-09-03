@@ -12,8 +12,9 @@ require.config({
         saveRestore : '../advanced/save-restore',  // 保存和恢复绘图状态
         transform   : '../advanced/transform',     // 变形
         transformMatrix : '../advanced/transform-matrix',  //  变换矩阵
-        combine  : '../advanced/combine',  // 合并
-        shadow   : '../advanced/shadow',    // 阴影
+        combine  : '../advanced/combine',     // 合并
+        shadow   : '../advanced/shadow',      // 阴影
+        gradient   : '../advanced/gradient',  // 渐变
 
         // 通用
         util     : '../comm/util',

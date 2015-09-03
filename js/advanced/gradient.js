@@ -1,7 +1,7 @@
 /**
  * 本demo展示了canvas的高级功能
  */
-define('shadow', [
+define('gradient', [
     'util',
     'graph',
     'property',
@@ -10,12 +10,12 @@ define('shadow', [
 
     return {
         /**
-         * [show 展示阴影函数]
+         * [show 展示渐变函数]
          * @param {[Object]} [context] [canvas绘图上下文]
          */
         show: function (context) {
             drawText(context, {
-                text: '五、阴影', 
+                text: '六、渐变', 
                 x: 180, 
                 y: 20
             });
