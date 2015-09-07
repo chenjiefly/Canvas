@@ -31,6 +31,6 @@ define('img-vedio/demo', [
         var canvas = $('#advanced8');
         var context = canvas.get(0).getContext('2d');
 
-        Image.show(context);  // 演示保存和恢复绘图状态
+        Image.show(canvas, context);  // 演示保存和恢复绘图状态
     }
 });

@@ -19,7 +19,8 @@ require.config({
         exportCanvas:'../advanced/export-canvas',// 导出画布为图像
 
         // img&vedio
-        imgVedio: '../img-vidio/demo',
+        imgVedio: '../img-vedio/demo',
+        image: '../img-vedio/image',  // 处理图像
 
         // 通用
         util     : '../comm/util',
