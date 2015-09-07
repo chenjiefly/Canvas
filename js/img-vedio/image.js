@@ -30,7 +30,7 @@ define('image', [
             context.translate(10, 60);
 
             _showLoadImage();  // 1、展示导出画布为图像，并跳转大小
-            _showResizeImage();  // 2、调整图像大小
+            _showClipImage();  // 2、调整图像大小
         }
     };
 
@@ -43,10 +43,13 @@ define('image', [
         context.translate(0, -20);
 
         drawText(context, {
-            text: '1、加载图像', 
+            text: '1、加载图像和调整图像大小', 
             x: 0, 
             y: 0
         });
+
+        // 平移原点坐标
+        context.translate(0, 10);
 
         // 加载图像
         var image = new Image();
@@ -54,15 +57,27 @@ define('image', [
         $(image).load(function () {
             context.drawImage(image, 0, 0, 120, 90);
         });
-
-        // 平移原点坐标
-        context.translate(0, 10);
     }
 
     /**
-     * [_showLoadImage 加载图像]
+     * [_showClipImage 裁剪图像]
      * @param {[Object]} [context] [canvas绘图上下文]
      */
-    function _showResizeImage() {
+    function _showClipImage() {
+        // 平移原点坐标
+        // context.translate(200, -20);
+
+        drawText(context, {
+            text: '2、裁剪图像', 
+            x: 200, 
+            y: -10
+        });
+
+        // 加载图像
+        var image1 = new Image();
+        image1.src = 'media/image.png';
+        $(image1).load(function () {
+            context.drawImage(image1, 200, 0, 120, 90);
+        });
     }
 });
