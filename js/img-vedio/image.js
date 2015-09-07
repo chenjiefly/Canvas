@@ -77,7 +77,10 @@ define('image', [
         var image1 = new Image();
         image1.src = 'media/image.png';
         $(image1).load(function () {
-            context.drawImage(image1, 200, 0, 120, 90);
+            context.drawImage(
+                image1, 
+                200, 0, 120, 90,   // 裁剪框的左上角坐标和尺寸
+                200, 0, 240, 180); // 待绘制裁剪图像的左上角坐标和尺寸
         });
     }
 });

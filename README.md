@@ -122,6 +122,6 @@
 * 处理图像
     * 加载方法：context.drawImage(image, x, y)，image可以是img元素、canvas元素或video元素
     * 调整图像大小：drawImage(image, x, y, width, height)，width和height为图像尺寸大小
-    * 裁剪图像：drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
+    * 裁剪图像：drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)，s打头的为裁剪区域左上角坐标和尺寸，d开头的为待绘制裁剪图形的左上角坐标和尺寸
     * **加载的图像似乎会跟着坐标原点移动**
 * 处理HTML5视频
