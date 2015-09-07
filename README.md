@@ -118,9 +118,7 @@
     * 在base64后的所有字符和符号都是以文本表示的画布图像
     * 将该数据直接赋给<img>标签的src特性可以直接显示图片
 
-#### 7、处理图像和视频
-* 加载图像
-    * 
-
+#### 7、img&vedio文件夹下为处理图像和视频
 * 处理图像
+    * 加载方法：context.drawImage(image, x, y)，image可以是img元素、canvas元素或video元素
 * 处理HTML5视频
