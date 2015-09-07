@@ -69,6 +69,35 @@ define('image', [
 
         drawText(context, {
             text: '2、裁剪图像', 
+            x: 180, 
+            y: -10
+        });
+
+        // 增加阴影模糊
+        context.shadowBlur = 20;
+        context.shadowColor = 'rgb(0, 0, 0)';
+
+        // 加载图像
+        var image1 = new Image();
+        image1.src = 'media/image.png';
+        $(image1).load(function () {
+            context.drawImage(
+                image1, 
+                180, 0, 60, 45,   // 裁剪框的左上角坐标和尺寸
+                180, 0, 120, 90); // 待绘制裁剪图像的左上角坐标和尺寸
+        });
+    }
+
+    /**
+     * [_showTransformImage 图像变形]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showTransformImage() {
+        // 平移原点坐标
+        // context.translate(200, -20);
+
+        drawText(context, {
+            text: '3、图像变形', 
             x: 200, 
             y: -10
         });
@@ -83,8 +112,8 @@ define('image', [
         $(image1).load(function () {
             context.drawImage(
                 image1, 
-                200, 0, 120, 90,   // 裁剪框的左上角坐标和尺寸
-                200, 0, 240, 180); // 待绘制裁剪图像的左上角坐标和尺寸
+                200, 0, 60, 45,   // 裁剪框的左上角坐标和尺寸
+                200, 0, 120, 90); // 待绘制裁剪图像的左上角坐标和尺寸
         });
     }
 });
