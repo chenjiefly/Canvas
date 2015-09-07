@@ -29,7 +29,8 @@ define('image', [
 
             context.translate(10, 60);
 
-            _showLoadImage();  // 1、展示导出画布为图像
+            _showLoadImage();  // 1、展示导出画布为图像，并跳转大小
+            _showResizeImage();  // 2、调整图像大小
         }
     };
 
@@ -38,8 +39,6 @@ define('image', [
      * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showLoadImage() {
-        var gradient;
-
         // 平移原点坐标
         context.translate(0, -20);
 
@@ -53,10 +52,17 @@ define('image', [
         var image = new Image();
         image.src = 'media/image.png';
         $(image).load(function () {
-            context.drawImage(image, 0, 0);
+            context.drawImage(image, 0, 0, 120, 90);
         });
 
         // 平移原点坐标
         context.translate(0, 10);
+    }
+
+    /**
+     * [_showLoadImage 加载图像]
+     * @param {[Object]} [context] [canvas绘图上下文]
+     */
+    function _showResizeImage() {
     }
 });

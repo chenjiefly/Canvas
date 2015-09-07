@@ -121,4 +121,5 @@
 #### 7、img&vedio文件夹下为处理图像和视频
 * 处理图像
     * 加载方法：context.drawImage(image, x, y)，image可以是img元素、canvas元素或video元素
+    * 调整图像大小：drawImage(image, x, y, width, height)，width和height为图像尺寸大小
 * 处理HTML5视频
