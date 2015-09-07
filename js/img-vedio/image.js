@@ -73,6 +73,10 @@ define('image', [
             y: -10
         });
 
+        // 增加阴影模糊
+        context.shadowBlur = 20;
+        context.shadowColor = 'rgb(0, 0, 0)';
+
         // 加载图像
         var image1 = new Image();
         image1.src = 'media/image.png';
