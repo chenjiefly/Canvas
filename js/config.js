@@ -18,6 +18,9 @@ require.config({
         complexPath: '../advanced/complex-path', // 复杂路径
         exportCanvas:'../advanced/export-canvas',// 导出画布为图像
 
+        // img&vedio
+        imgVedio: '../img-vidio/demo',
+
         // 通用
         util     : '../comm/util',
         // 库文件
