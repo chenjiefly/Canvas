@@ -13,7 +13,7 @@ define('image', [
 
     return {
         /**
-         * [show 展示复杂路径函数]
+         * [show 展示处理图像函数]
          * @param {[Object]} [can] [canvas对象]
          * @param {[Object]} [con] [canvas绘图上下文]
          */
@@ -31,12 +31,51 @@ define('image', [
 
             _showLoadImage();  // 1、展示导出画布为图像，并跳转大小
             _showClipImage();  // 2、调整图像大小
+        },
+        /**
+         * [showGetColor 拾色器]
+         */
+         showGetColor: function(can, con) {
+            var canvas = can,
+                context = con;
+
+            // 平移原点坐标
+            context.translate(200, 20);
+
+            drawText(context, {
+                text: '十、获取像素值', 
+                x: 0, 
+                y: 0
+            });
+
+            // 加载图像
+            var image1 = new Image();
+            // image1.crossOrigin = 'anonymous';  // 防止跨域错误
+            image1.src = 'media/colorBar.png';
+            $(image1).load(function () {
+                context.drawImage(
+                    image1,
+                    -180, 20, 120, 90);
+            });
+
+            // 绑定事件
+            canvas.click(function (ev) {
+                var offset = canvas.offset(),
+                    x = Math.floor(ev.pageX - offset.left),
+                    y = Math.floor(ev.pageY - offset.top),
+                    imageData,
+                    pixelColor;
+
+                    imageData = context.getImageData(x, y, 1, 1);
+                    pixelColor = 'rgba(' + pixel[0] +', ' + pixel[1] + ', ' + pixel[2] + ', ' + pixel[3] + ')';
+                
+                $('body').css('backgroundColor', pixelColor);                    
+            })
         }
     };
 
     /**
      * [_showLoadImage 加载图像]
-     * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showLoadImage() {
         // 平移原点坐标
@@ -61,7 +100,6 @@ define('image', [
 
     /**
      * [_showClipImage 裁剪图像]
-     * @param {[Object]} [context] [canvas绘图上下文]
      */
     function _showClipImage() {
         // 平移原点坐标
@@ -85,35 +123,6 @@ define('image', [
                 image1, 
                 180, 0, 60, 45,   // 裁剪框的左上角坐标和尺寸
                 180, 0, 120, 90); // 待绘制裁剪图像的左上角坐标和尺寸
-        });
-    }
-
-    /**
-     * [_showTransformImage 图像变形]
-     * @param {[Object]} [context] [canvas绘图上下文]
-     */
-    function _showTransformImage() {
-        // 平移原点坐标
-        // context.translate(200, -20);
-
-        drawText(context, {
-            text: '3、图像变形', 
-            x: 200, 
-            y: -10
-        });
-
-        // 增加阴影模糊
-        context.shadowBlur = 20;
-        context.shadowColor = 'rgb(0, 0, 0)';
-
-        // 加载图像
-        var image1 = new Image();
-        image1.src = 'media/image.png';
-        $(image1).load(function () {
-            context.drawImage(
-                image1, 
-                200, 0, 60, 45,   // 裁剪框的左上角坐标和尺寸
-                200, 0, 120, 90); // 待绘制裁剪图像的左上角坐标和尺寸
         });
     }
 });

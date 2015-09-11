@@ -23,14 +23,23 @@ define('img-vedio/demo', [
          */
         showDemo: function () {
            _demo1();
+           _demo2();
         }
     };
 
-    // 示例一、保存和恢复绘图状态
+    // 示例一、显示加载图像
     function _demo1() {
         var canvas = $('#advanced8');
         var context = canvas.get(0).getContext('2d');
 
-        Image.show(canvas, context);  // 演示保存和恢复绘图状态
+        Image.show(canvas, context);  // 演示加载图像
+    }
+
+    // 示例二、显示获得像素颜色值
+    function _demo2() {
+        var canvas = $('#advanced9');
+        var context = canvas.get(0).getContext('2d');
+
+        Image.showGetColor(canvas, context);
     }
 });
