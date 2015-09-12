@@ -125,15 +125,16 @@
     * 裁剪图像：drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)，s打头的为裁剪区域左上角坐标和尺寸，d开头的为待绘制裁剪图形的左上角坐标和尺寸
     * **加载的图像似乎会跟着坐标原点移动**
     * 访问像素值
-      * context.getImageData(x, y, width, heigth)
-      * (x, y)为width*height区域的左上顶点的坐标
-      * 返回一个2D渲染上下文的ImageData对象，该对象包含三个属性，宽、高和区域全部像素数组CanvasPixelArray
-      * CanvasPixelArray是一个JS一维数组，每个像素用4个整数值表示，范围0~255，分别表示rgba
-      * 精确访问数组中像素的公式
-        * pixelRed = ((y - 1) * (width * 4)) + ((x - 1) * 4)
-        * pixelGreen = pixelRed + 1
-        * pixelBlue  = pixelRed + 2
-        * pixelAlpha = pixelRed + 3
+        * 注意可能会有错误提示“Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data.”，解决方案是HTML通过服务器访问
+        * context.getImageData(x, y, width, heigth)
+        * (x, y)为width*height区域的左上顶点的坐标
+        * 返回一个2D渲染上下文的ImageData对象，该对象包含三个属性，宽、高和区域全部像素数组CanvasPixelArray
+        * CanvasPixelArray是一个JS一维数组，每个像素用4个整数值表示，范围0~255，分别表示rgba
+        * 精确访问数组中像素的公式
+            * pixelRed = ((y - 1) * (width * 4)) + ((x - 1) * 4)
+            * pixelGreen = pixelRed + 1
+            * pixelBlue  = pixelRed + 2
+            * pixelAlpha = pixelRed + 3
     * 创建像素值
         * 方法：createImageData(width, height, data)
     * 绘制图像
