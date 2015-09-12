@@ -111,7 +111,7 @@ define('image', [
         context.translate(0, 20);
 
         drawText(context, {
-            text: '1、单击图片读取像素值', 
+            text: '1、单击图片取颜色--需服务器', 
             x: -180, 
             y: 0
         });
