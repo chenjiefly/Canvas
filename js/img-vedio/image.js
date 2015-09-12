@@ -147,6 +147,63 @@ define('image', [
      * @param  {[Object]} context [2D绘制上下文]
      */
     function _showDrawImage(canvas, context) {
+        var imageData = context.createImageData(100, 100),
+            pixels = imageData.data,
+            numPixels = imageData.width * imageData.height / 2;
 
+        // 纯色
+        for (var i = 0; i < numPixels; i++) {
+            pixels[i*4] = 255;
+            pixels[i*4+1] = 0;
+            pixels[i*4+2] = 0;
+            pixels[i*4+3] = 255;
+        }
+        // 随机色
+        for (var i = numPixels; i < numPixels*2; i++) {
+            pixels[i*4] = Math.floor(Math.random() * 255);
+            pixels[i*4+1] = Math.floor(Math.random() * 255);
+            pixels[i*4+2] = Math.floor(Math.random() * 255);
+            pixels[i*4+3] = 255;
+        }
+
+        // 平移原点坐标
+        context.translate(0, 0);
+
+        drawText(context, {
+            text: '2、绘制图像', 
+            x: 0, 
+            y: 0
+        });
+
+        context.putImageData(imageData, 200, 60);  // 绘制图像
+
+        // 马赛克
+        var numTileRows = 5,  // 马赛克的行数和列数
+            numTileCols = 5,
+            tileWidth = imageData.width / numTileCols,  // 每个块的尺寸
+            tileHeight = imageData.height / numTileRows;
+
+        for (var r = 0; r < numTileRows; r++) {
+            for (var c = 0; c <numTileCols; c++) {
+                // 为每个块设置像素的颜色值
+                var red = Math.floor(Math.random() * 255),
+                    green = Math.floor(Math.random() * 255),
+                    blue = Math.floor(Math.random() * 255);
+
+                for (var tr = 0; tr < tileHeight; tr++) {
+                    for (var tc = 0; tc < tileWidth; tc++) {
+                        var trueX = (c * tileWidth) + tc,
+                            trueY = (r * tileHeight) + tr,
+                            pos = (trueY * (imageData.width * 4)) + (trueX * 4);
+
+                        pixels[pos] = red;
+                        pixels[pos+1] = green;
+                        pixels[pos+2] = blue;
+                        pixels[pos+3] = 255;
+                    }
+                }
+            }
+        }
+        context.putImageData(imageData, 350, 60);
     }
 });

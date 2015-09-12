@@ -136,4 +136,6 @@
         * pixelAlpha = pixelRed + 3
     * 创建像素值
         * 方法：createImageData(width, height, data)
+    * 绘制图像
+        * 方法：inputImageData(data, x, y)，x和y为相对于画布原点的坐标
 * 处理HTML5视频
