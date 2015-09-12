@@ -40,6 +40,6 @@ define('img-vedio/demo', [
         var canvas = $('#advanced9');
         var context = canvas.get(0).getContext('2d');
 
-        Image.showGetColor(canvas, context);
+        Image.showOperatePixel(canvas, context);
     }
 });

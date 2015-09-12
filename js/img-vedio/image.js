@@ -22,7 +22,7 @@ define('image', [
             context = con;
 
             drawText(context, {
-                text: '九、加载图像', 
+                text: '一、加载图像', 
                 x: 180, 
                 y: 20
             });
@@ -33,44 +33,11 @@ define('image', [
             _showClipImage();  // 2、调整图像大小
         },
         /**
-         * [showGetColor 拾色器]
+         * [showOperatePixel 拾色器]
          */
-         showGetColor: function(can, con) {
-            var canvas = can,
-                context = con;
-
-            // 平移原点坐标
-            context.translate(200, 20);
-
-            drawText(context, {
-                text: '十、获取像素值', 
-                x: 0, 
-                y: 0
-            });
-
-            // 加载图像
-            var image1 = new Image();
-            // image1.crossOrigin = 'anonymous';  // 防止跨域错误
-            image1.src = 'media/colorBar.png';
-            $(image1).load(function () {
-                context.drawImage(
-                    image1,
-                    -180, 20, 120, 90);
-            });
-
-            // 绑定事件
-            canvas.click(function (ev) {
-                var offset = canvas.offset(),
-                    x = Math.floor(ev.pageX - offset.left),
-                    y = Math.floor(ev.pageY - offset.top),
-                    imageData,
-                    pixelColor;
-
-                    imageData = context.getImageData(x, y, 1, 1);
-                    pixelColor = 'rgba(' + pixel[0] +', ' + pixel[1] + ', ' + pixel[2] + ', ' + pixel[3] + ')';
-                
-                $('body').css('backgroundColor', pixelColor);                    
-            })
+         showOperatePixel: function(can, con) {
+            _showReadPixel(can, con);  // 演示读取像素值
+            _showDrawImage(can, con);  // 演示绘图
         }
     };
 
@@ -124,5 +91,62 @@ define('image', [
                 180, 0, 60, 45,   // 裁剪框的左上角坐标和尺寸
                 180, 0, 120, 90); // 待绘制裁剪图像的左上角坐标和尺寸
         });
+    }
+    /**
+     * [showReadPixel 演示读取像素值]
+     * @param  {[Object]} canvas  [canvas对象]
+     * @param  {[Object]} context [2D绘制上下文]
+     */
+    function _showReadPixel(canvas, context) {
+        // 平移原点坐标
+        context.translate(200, 20);
+
+        drawText(context, {
+            text: '二、像素值操作', 
+            x: 0, 
+            y: 0
+        });
+
+        // 平移原点坐标
+        context.translate(0, 20);
+
+        drawText(context, {
+            text: '1、单击图片读取像素值', 
+            x: -180, 
+            y: 0
+        });
+
+        // 加载图像
+        var image1 = new Image();
+        image1.src = 'media/colorBar.png';
+        $(image1).load(function () {
+            context.drawImage(
+                image1,
+                -180, 20, 120, 90);
+        });
+
+        // 绑定事件
+        canvas.click(function (ev) {
+            var offset = canvas.offset(),
+                x = Math.floor(ev.pageX - offset.left),  // 得到鼠标在画布内的横坐标
+                y = Math.floor(ev.pageY - offset.top),   // 得到鼠标在画布内的纵坐标
+                imageData,
+                pixel,
+                pixelColor;
+
+                imageData = context.getImageData(x, y, 1, 1);
+                pixel = imageData.data;  // 因为只是读取了一个像素，所以数组中只有一个点的4个数据rgba
+                pixelColor = 'rgba(' + pixel[0] +', ' + pixel[1] + ', ' + pixel[2] + ', ' + pixel[3] + ')';
+            
+            $('body').css('backgroundColor', pixelColor);                    
+        });
+    }
+    /**
+     * [_showDrawImage 演示绘制图像]
+     * @param  {[Object]} canvas  [canvas对象]
+     * @param  {[Object]} context [2D绘制上下文]
+     */
+    function _showDrawImage(canvas, context) {
+
     }
 });

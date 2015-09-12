@@ -134,4 +134,6 @@
         * pixelGreen = pixelRed + 1
         * pixelBlue  = pixelRed + 2
         * pixelAlpha = pixelRed + 3
+    * 创建像素值
+        * 方法：createImageData(width, height, data)
 * 处理HTML5视频
