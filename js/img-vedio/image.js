@@ -151,11 +151,16 @@ define('image', [
             pixels = imageData.data,
             numPixels = imageData.width * imageData.height / 2;
 
-        // 纯色
+        // 纯色：灰度
         for (var i = 0; i < numPixels; i++) {
-            pixels[i*4] = 255;
-            pixels[i*4+1] = 0;
-            pixels[i*4+2] = 0;
+            var r = 40, 
+                g = 150, 
+                b = 234,
+                grey = (r + g + b) / 3;
+
+            pixels[i*4] = grey;
+            pixels[i*4+1] = grey;
+            pixels[i*4+2] = grey;
             pixels[i*4+3] = 255;
         }
         // 随机色
@@ -170,7 +175,7 @@ define('image', [
         context.translate(0, 0);
 
         drawText(context, {
-            text: '2、绘制图像', 
+            text: '2、绘制图像：灰度纯色、随机色和马赛克', 
             x: 0, 
             y: 0
         });
@@ -186,9 +191,9 @@ define('image', [
         for (var r = 0; r < numTileRows; r++) {
             for (var c = 0; c <numTileCols; c++) {
                 // 为每个块设置像素的颜色值
-                var red = Math.floor(Math.random() * 255),
-                    green = Math.floor(Math.random() * 255),
-                    blue = Math.floor(Math.random() * 255);
+                var red = 255 - Math.floor(Math.random() * 255),    // 翻转颜色
+                    green = 255 - Math.floor(Math.random() * 255),
+                    blue = 255 - Math.floor(Math.random() * 255);
 
                 for (var tr = 0; tr < tileHeight; tr++) {
                     for (var tc = 0; tc < tileWidth; tc++) {

@@ -138,4 +138,9 @@
         * 方法：createImageData(width, height, data)
     * 绘制图像
         * 方法：inputImageData(data, x, y)，x和y为相对于画布原点的坐标
+        * 翻转颜色：255-当前颜色值
+        * 灰度：grey = (r + g + b) / 3
+    * 像素化
+        * 取图像中对应点的颜色，并在该点上绘制该颜色的矩形、圆形等图案
 * 处理HTML5视频
+    * 创建HTML5 vedeo元素
