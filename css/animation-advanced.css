@@ -1,0 +1,14 @@
+#animation2 {
+    background: #001022;
+}
+#myButtons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+#myButtons button {
+    padding: 5px;
+}
+.animation-wrap {
+    position: relative;
+}

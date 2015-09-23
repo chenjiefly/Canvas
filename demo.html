@@ -5,24 +5,27 @@
     <title>Canvas Demo</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/demo.css">
-    <script data-main="js/config" type="text/javascript" src="js/lib/require.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <!--[if IE]>
-        <script type="text/javascript" src="lib/excanvas.js"></script>
-    <![endif]--> 
+    <link rel="stylesheet" href="css/animation-advanced.css">
 </head>
 <body>
     <div class="mod-canvas">
         <ul>
             <li>
-                <h1>4、动画</h1>
-                <!-- animation -->
+                <h1>4、基本动画</h1>
                 <div>单击按钮控制方块运动：
                     <button id="startAnimation">Start</button>
                     <button id="stopAnimation">Stop</button>
                 </div>
                 <canvas id="animation1" width="800" height="250"></canvas>
-                <canvas id="animation2" width="500" height="250"></canvas>
+
+                <h1>5、高级动画</h1>
+                <div class='animation-wrap'>
+                    <div id='myButtons'>
+                        <button id="beginButton">Begin</button>
+                        <button id="endButton">End</button>
+                    </div>
+                    <canvas id="animation2" width="500" height="250"></canvas>
+                </div>
             </li>
             <li>
                 <h1>1、Canvas的基本功能</h1>
@@ -52,5 +55,10 @@
             </li>
         </ul>
     </div>
+    <script data-main="js/config" type="text/javascript" src="js/lib/require.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!--[if IE]>
+        <script type="text/javascript" src="lib/excanvas.js"></script>
+    <![endif]--> 
 </body>
 </html>

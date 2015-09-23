@@ -22,6 +22,10 @@ require.config({
         imgVedio: '../img-vedio/demo',
         image: '../img-vedio/image',  // 处理图像
 
+        // animation
+        animationBase    : '../animation/base',     // 基本动画
+        animationAdvanced: '../animation/advanced', // 高级动画
+
         // 通用
         util     : '../comm/util',
         // 库文件
