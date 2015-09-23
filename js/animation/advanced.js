@@ -46,11 +46,11 @@ define('animationAdvanced', [
         resizeCanvas();
 
         // 开始和停止按钮事件绑定
-        var playAnimation = true,
+        var playAnimation = false,
             beginBtn = $('#beginButton'),
             endBtn = $('#endButton');
 
-        beginBtn.hide();
+        endBtn.hide();
         beginBtn.click(function() {
             $(this).hide();
             endBtn.show();
